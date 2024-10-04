@@ -1,0 +1,45 @@
+---
+- name: Ensure fail2ban package is installed
+  ansible.builtin.apt:
+    name: fail2ban
+    state: present
+    update_cache: true
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+
+- name: Ensure fail2ban service is started and enabled
+  ansible.builtin.systemd:
+    name: fail2ban.service
+    state: started
+    enabled: true
+    daemon_reload: true
+
+- name: Ensure fail2ban configuration directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "755"
+  with_items:
+    - "{{ __f2b_jail_dir }}"
+    - "{{ __f2b_fail2ban_dir }}"
+
+- name: Adjust fail2ban service configuration
+  ansible.builtin.copy:
+    src: fail2ban.conf
+    dest: "{{ __f2b_fail2ban_dir }}/fail2ban.conf"
+    backup: true
+    owner: root
+    group: root
+    mode: "644"
+  notify: Restart fail2ban.service
+
+- name: Ensure fail2ban service is configured to protect the ssh service
+  ansible.builtin.template:
+    src: sshd.conf.j2
+    dest: "{{ __f2b_jail_dir }}/sshd.conf"
+    backup: true
+    owner: root
+    group: root
+    mode: "644"
+  notify: Restart fail2ban.service

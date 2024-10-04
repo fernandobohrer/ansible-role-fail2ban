@@ -1,0 +1,10 @@
+---
+apt_cache_valid_time: 3600
+
+# After registering 10 failed ssh login attempts in the
+# last 24 hours, block the source IP address for a week.
+fail2ban_sshd_bantime: 604800
+fail2ban_sshd_enabled: "true"
+fail2ban_sshd_findtime: 86400
+fail2ban_sshd_maxretry: 10
+fail2ban_sshd_port: 22

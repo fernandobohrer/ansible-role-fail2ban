@@ -32,6 +32,20 @@ An example of how integrate this role to an Ansible playbook can be found here:
     - fernandobohrer.fail2ban
 ```
 
+## 📋 Usage
+
+To get the status associated with the `sshd` jail:
+
+```bash
+sudo fail2ban-client status sshd
+```
+
+To unban an IP address:
+
+```bash
+sudo fail2ban-client set sshd unbanip 203.0.113.1
+```
+
 ## ⚙️ Compatibility
 
 This role was tested on and is confirmed to work with the following Linux distributions:

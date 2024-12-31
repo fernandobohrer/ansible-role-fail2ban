@@ -1,8 +1,8 @@
 [sshd]
 backend  = systemd
-bantime  = {{ fail2ban_sshd_bantime }}
-enabled  = {{ fail2ban_sshd_enabled }}
-findtime = {{ fail2ban_sshd_findtime }}
-maxretry = {{ fail2ban_sshd_maxretry }}
 mode     = aggressive
-port     = {{ fail2ban_sshd_port }}
+enabled  = {{ fail2ban__sshd_enabled }}
+port     = {{ fail2ban__sshd_port }}
+findtime = {{ fail2ban__sshd_findtime }}
+maxretry = {{ fail2ban__sshd_maxretry }}
+bantime  = {{ fail2ban__sshd_bantime }}

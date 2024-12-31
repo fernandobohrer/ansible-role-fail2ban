@@ -1,7 +1,7 @@
 ---
-- name: Ensure fail2ban package is installed
+- name: Ensure role dependencies are installed
   ansible.builtin.apt:
-    name: fail2ban
+    name: "{{ __fail2ban__role_dependencies }}"
     state: present
     update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time }}"
@@ -21,13 +21,13 @@
     group: root
     mode: "755"
   with_items:
-    - "{{ __f2b_jail_dir }}"
-    - "{{ __f2b_fail2ban_dir }}"
+    - "{{ __fail2ban__jail_dir }}"
+    - "{{ __fail2ban__config_dir }}"
 
 - name: Adjust fail2ban service configuration
   ansible.builtin.copy:
     src: fail2ban.conf
-    dest: "{{ __f2b_fail2ban_dir }}/fail2ban.conf"
+    dest: "{{ __fail2ban__config_dir }}/fail2ban.conf"
     backup: true
     owner: root
     group: root
@@ -37,7 +37,7 @@
 - name: Ensure fail2ban service is configured to protect the ssh service
   ansible.builtin.template:
     src: sshd.conf.j2
-    dest: "{{ __f2b_jail_dir }}/sshd.conf"
+    dest: "{{ __fail2ban__jail_dir }}/sshd.conf"
     backup: true
     owner: root
     group: root

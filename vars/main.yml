@@ -1,3 +1,7 @@
 ---
-__f2b_jail_dir: /etc/fail2ban/jail.d
-__f2b_fail2ban_dir: /etc/fail2ban/fail2ban.d
+__fail2ban__jail_dir: /etc/fail2ban/jail.d
+
+__fail2ban__config_dir: /etc/fail2ban/fail2ban.d
+
+__fail2ban__role_dependencies:
+  - fail2ban

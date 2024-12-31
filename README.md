@@ -12,7 +12,7 @@ This role deploys [Fail2Ban][01] and its dependencies and configures the solutio
 
 ## 📑 Role Variables
 
-Check `defaults/main.yml`.
+Check [here][03].
 
 ## 🧰 Dependencies
 
@@ -54,7 +54,7 @@ This role was tested on and is confirmed to work with the following Linux distri
 - `Ubuntu 22.04`
 - `Ubuntu 24.04`
 
-Details can be found in the [Molecule][03] scenarios available in the `molecule` folder.
+Details can be found in the [Molecule][04] scenarios available in the `molecule` folder.
 
 ## ⚠️ Warning
 
@@ -64,9 +64,10 @@ With the above in mind, it is **imperative** that you familiarize yourself with 
 
 ## 📝 License
 
-This project is licensed under the terms of the [MIT license][04].
+This project is licensed under the terms of the [MIT license][05].
 
 [01]: https://github.com/fail2ban/fail2ban
 [02]: https://www.openssh.com/
-[03]: https://github.com/fernandobohrer/ansible-molecule-scenarios
-[04]: /LICENSE
+[03]: defaults/main.yml
+[04]: https://github.com/fernandobohrer/ansible-molecule-scenarios
+[05]: /LICENSE

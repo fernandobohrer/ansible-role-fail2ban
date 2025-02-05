@@ -1,4 +1,6 @@
 ---
+# Update the apt cache if it is older than the apt_cache_valid_time value.
+# Option set in seconds.
 apt_cache_valid_time: 3600
 
 # After registering 10 failed ssh login attempts in the

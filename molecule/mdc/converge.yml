@@ -7,4 +7,4 @@
   tasks:
     - name: Apply role
       ansible.builtin.include_role:
-        name: ansible-role-fail2ban
+        name: fernandobohrer.fail2ban

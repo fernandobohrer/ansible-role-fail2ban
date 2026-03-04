@@ -12,7 +12,7 @@ This role deploys [Fail2Ban][01] and its dependencies and configures the solutio
 
 ## 📑 Role Variables
 
-Check [here][03].
+Check [defaults/main.yml][03].
 
 ## 🧰 Dependencies
 

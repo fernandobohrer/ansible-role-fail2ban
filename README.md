@@ -6,7 +6,7 @@ An opinionated Ansible role that deploys and configures [Fail2Ban][01] to protec
 
 From Fail2Ban's [GitHub repository][01]:
 
-*Fail2Ban scans log files like `/var/log/auth.log` and bans IP addresses conducting too many failed login attempts. It does this by updating system firewall rules to reject new connections from those IP addresses, for a configurable amount of time.*
+_Fail2Ban scans log files like `/var/log/auth.log` and bans IP addresses conducting too many failed login attempts. It does this by updating system firewall rules to reject new connections from those IP addresses, for a configurable amount of time._
 
 This role deploys [Fail2Ban][01] and its dependencies and configures the solution to protect your machines' [OpenSSH][02] service.
 
